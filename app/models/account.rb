@@ -104,7 +104,7 @@ class Account < ApplicationRecord
   end
 
   def subscribed?
-    subscription_expires_at
+    !subscription_expires_at.nil?
   end
 
   def favourited?(status)
