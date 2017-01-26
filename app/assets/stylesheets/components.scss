@@ -703,3 +703,30 @@ button.active i.fa-retweet {
     background: lighten($color1, 6%);
   }
 }
+
+.spoiler__content {
+  color: lighten($color1, 52%);
+
+  .spoiler__toggle {
+    display: block;
+    height: 0.6em;
+    border-bottom: 1px solid lighten($color1, 52%);
+    overflow: visible;
+    margin-bottom: 0.6em;
+    text-align: center;
+
+    a {
+      background: $color1;
+      padding: 0 0.4em;
+    }
+  }
+
+}
+
+.detailed-status .spoiler__toggle a {
+  background: lighten($color1, 4%);
+}
+
+.muted .spoiler__toggle {
+  border-bottom-color: lighten($color1, 26%);
+}

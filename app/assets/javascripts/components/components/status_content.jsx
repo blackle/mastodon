@@ -92,10 +92,10 @@ const StatusContent = React.createClass({
 
       return (
         <div className='status__content' style={{ cursor: 'pointer' }} onMouseDown={this.handleMouseDown} onMouseUp={this.handleMouseUp}>
-          <p style={{ marginBottom: hidden ? '0px' : '' }} >
-            <span dangerouslySetInnerHTML={spoilerContent} /> <a onClick={this.handleSpoilerClick}>{toggleText}</a>
+          <p className='spoiler__content' style={{ marginBottom: hidden ? '0px' : '' }} >
+            <span dangerouslySetInnerHTML={spoilerContent} />
+            <span className='spoiler__toggle'><a onClick={this.handleSpoilerClick}>{toggleText}</a></span>
           </p>
-
           <div style={{ display: hidden ? 'none' : 'block' }} dangerouslySetInnerHTML={content} />
         </div>
       );
