@@ -47,6 +47,15 @@ export default class ModalRoot extends React.PureComponent {
     return {
       overflowY: visible ? 'hidden' : null,
     };
+  state = {
+    revealed: false,
+  };
+
+  handleKeyUp = (e) => {
+    if ((e.key === 'Escape' || e.key === 'Esc' || e.keyCode === 27)
+         && !!this.props.type && !this.props.props.noEsc) {
+      this.props.onClose();
+    }
   }
 
   componentDidUpdate (prevProps, prevState, { overflowY }) {
