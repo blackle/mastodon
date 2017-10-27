@@ -13,7 +13,8 @@
       .column-0
         .brand
           = link_to root_url do
-            = image_tag asset_pack_path('logo_full.svg'), alt: 'Mastodon'
+            = image_tag asset_pack_path('logo-cybre.png')
+            = Setting.site_title
 
       - if Setting.timeline_preview
         .column-1
