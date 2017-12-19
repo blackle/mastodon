@@ -373,15 +373,6 @@
     padding: 10px;
     cursor: pointer;
     border-radius: 4px;
-.compose-form__buttons-separator { 
-  border-left: 1px solid #c3c3c3; 
-  margin: 0 3px; 
-} 
-
-.compose-form__upload-button-icon {
-  line-height: 27px;
-}
-
     &:hover,
     &:focus,
     &:active,
@@ -5399,7 +5390,6 @@ noscript {
   }
 }
 
-<<<<<<< HEAD
 .trends {
   &__header {
     color: $dark-text-color;
@@ -5477,6 +5467,4 @@ noscript {
     }
   }
 }
-=======
 @import 'doodle';
->>>>>>> Doodle palette, options, fill tool (#172)
