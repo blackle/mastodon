@@ -14,12 +14,6 @@ window.addEventListener('message', e => {
       id: data.id,
       height: document.getElementsByTagName('html')[0].scrollHeight,
     }, '*');
-
-    if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(sizeBioText);
-    } else {
-      sizeBioText();
-    }
   });
 });
 
@@ -84,6 +78,17 @@ function main() {
           document.body.appendChild(content);
         })
         .catch(error => console.error(error));
+    }
+
+    [].forEach.call(document.querySelectorAll('[data-component="Card"]'), (content) => {
+      const props = JSON.parse(content.getAttribute('data-props'));
+      ReactDOM.render(<CardContainer locale={locale} {...props} />, content);
+    });
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(sizeBioText);
+    } else {
+      sizeBioText();
     }
   });
 
