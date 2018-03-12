@@ -83,8 +83,11 @@ module Mastodon
     ]
 
     config.i18n.default_locale = ENV['DEFAULT_LOCALE']&.to_sym
-    unless config.i18n.available_locales.include?(config.i18n.default_locale)
+    if config.i18n.available_locales.include?(config.i18n.default_locale)
+      config.i18n.fallbacks = [:en]
+    else
       config.i18n.default_locale = :'en-CY'
+      config.i18n.fallbacks = [:en]
     end
 
     # config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
