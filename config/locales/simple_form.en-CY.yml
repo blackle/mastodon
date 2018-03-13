@@ -44,8 +44,8 @@ en-CY:
         setting_delete_modal: Show confirmation dialog before deleting a ping
         setting_noindex: Opt-out of search engine indexing
         setting_system_font_ui: Use a heuristic-based approximation of what Mastodon thinks your system font might be
+        setting_theme: Site theme
         setting_unfollow_modal: Show confirmation dialog before unfollowing someone
-        setting_theme: Site theme 
         severity: Severity
         type: Import type
         username: Username
