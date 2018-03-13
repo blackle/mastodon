@@ -1,6 +1,7 @@
 ---
 en-CY:
   about:
+    about_hashtag_html: These are public pings tagged with <strong>#%{hashtag}</strong>. You can interact with them if you have an account anywhere in the fediverse
     about_mastodon_html: Cybrespace is an instance of Mastodon, a social network based on open web protocols and free, open-source software. It is decentralized like e-mail.
     about_this: About
     closed_registrations: Registrations are currently closed on this instance. However! You can find a different instance to make an account on and get access to the very same network from there.
@@ -446,8 +447,9 @@ en-CY:
     open_in_web: Open in web
     over_character_limit: character limit of %{max} exceeded
     pin_errors:
-      ownership: Someone else's toot cannot be pinned
-      private: Non-public toot cannot be pinned
+      limit: You have already pinned the maximum number of pings
+      ownership: Someone else's ping cannot be pinned
+      private: Non-public pings cannot be pinned
       reblog: A boost cannot be pinned
     show_more: Show more
     visibilities:
