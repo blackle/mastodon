@@ -24,7 +24,7 @@ const messages = defineMessages({
   follow_requests: { id: 'navigation_bar.follow_requests', defaultMessage: '~/.follow-requests' },
   favourites: { id: 'navigation_bar.favourites', defaultMessage: '~/.florps' },
   blocks: { id: 'navigation_bar.blocks', defaultMessage: '~/.blocked' },
-  domain_blocks: { id: 'navigation_bar.domain_blocks', defaultMessage: '~/.hidden-domains' },
+  domain_blocks: { id: 'navigation_bar.domain_blocks', defaultMessage: '~/.muted/domains' },
   mutes: { id: 'navigation_bar.mutes', defaultMessage: '~/.muted' },
   pins: { id: 'navigation_bar.pins', defaultMessage: '~/.pinned' },
   lists: { id: 'navigation_bar.lists', defaultMessage: '~/.lists' },
