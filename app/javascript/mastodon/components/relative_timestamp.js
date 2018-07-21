@@ -60,6 +60,8 @@ const getUnitDelay = units => {
   }
 };
 
+const fallbackFormat = new Intl.DateTimeFormat('en', shortDateFormatOptions);
+
 @injectIntl
 export default class RelativeTimestamp extends React.Component {
 
@@ -139,7 +141,11 @@ export default class RelativeTimestamp extends React.Component {
         relativeTime = intl.formatMessage(messages.days, { number: Math.floor(delta / DAY) });
       }
     } else if (date.getFullYear() === year) {
-      relativeTime = intl.formatDate(date, shortDateFormatOptions);
+      if (intl.locale === 'en-CY') {
+        relativeTime = fallbackFormat.format(date);
+      } else {
+          relativeTime = intl.formatDate(date, shortDateFormatOptions);
+      }
     } else {
       relativeTime = intl.formatDate(date, { ...shortDateFormatOptions, year: 'numeric' });
     }

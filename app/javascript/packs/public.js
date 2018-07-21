@@ -79,6 +79,17 @@ function main() {
         })
         .catch(error => console.error(error));
     }
+
+    [].forEach.call(document.querySelectorAll('[data-component="Card"]'), (content) => {
+      const props = JSON.parse(content.getAttribute('data-props'));
+      ReactDOM.render(<CardContainer locale={locale} {...props} />, content);
+    });
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(sizeBioText);
+    } else {
+      sizeBioText();
+    }
   });
 
   delegate(document, '.webapp-btn', 'click', ({ target, button }) => {
@@ -111,13 +122,7 @@ function main() {
     }
   });
 
-  delegate(document, '.account_note', 'input', ({ target }) => {
-    const noteCounter = document.querySelector('.note-counter');
-
-    if (noteCounter) {
-      noteCounter.textContent = 160 - length(target.value);
-    }
-  });
+  delegate(document, '.account_note', 'input', sizeBioText);
 
   delegate(document, '#account_avatar', 'change', ({ target }) => {
     const avatar = document.querySelector('.card.compact .avatar img');
@@ -134,6 +139,20 @@ function main() {
 
     header.style.backgroundImage = `url(${url})`;
   });
+
+  function sizeBioText() {
+    const noteCounter = document.querySelector('.note-counter');
+    const bioTextArea = document.querySelector('#account_note');
+
+    if (noteCounter) {
+      noteCounter.textContent = 413 - length(bioTextArea.value);
+    }
+
+    if (bioTextArea) {
+      bioTextArea.style.height = 'auto';
+      bioTextArea.style.height = (bioTextArea.scrollHeight+3) + 'px';
+    }
+  }
 }
 
 loadPolyfills().then(main).catch(error => {
