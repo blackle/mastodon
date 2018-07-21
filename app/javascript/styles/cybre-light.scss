@@ -1,0 +1,251 @@
+@import 'mastodon-light/variables';
+
+// $ui-base-color: #f7e8ed; // "darkest"
+// $ui-base-lighter-color: darken($ui-base-color, 40%); // Lighter darkest
+// $ui-secondary-color: #ead0d6; // "lightest"
+// $ui-primary-color: #bf5677; // "lighter"
+// $ui-highlight-color: #bf5677; // "vibrant"
+// $primary-text-color: #382b32;
+// $secondary-text-color: #382b32;
+// 
+// $icon-button-inactive-color: lighten(desaturate($ui-base-lighter-color, 20%), 20%);
+// $action-button-color: $icon-button-inactive-color;
+// 
+// $about-page-text: $primary-text-color;
+
+$ui-base-color: #f7e8ed; // "darkest"
+$ui-base-lighter-color: lighten($ui-base-color, 40%); // Lighter darkest
+$ui-primary-color: #ed9aad; // "lighter"
+$ui-secondary-color: #6d3e4d;
+$ui-highlight-color: #bf5677; // "vibrant"
+$ui-base-alt: #f9f2f5;
+
+$header-color: $ui-highlight-color;
+$header-text-color: #fff;
+
+$darker-text-color: #38282c;
+$dark-text-color: #5b4348;
+
+$lighter-text-color: #38282c;
+$light-text-color: #5b4348;
+
+$icon-button-inactive-color: darken(desaturate($ui-base-lighter-color, 10%), 20%);
+$action-button-color: $icon-button-inactive-color;
+
+@import 'cybre-base';
+
+@import 'mastodon-light/diff';
+
+$gold-star: #dd9d08;
+
+//Un-invert darkened and lightened functions
+@function darken($color, $amount) {
+  @return hsl(hue($color), saturation($color), lightness($color) - $amount);
+}
+
+@function lighten($color, $amount) {
+  @return hsl(hue($color), saturation($color), lightness($color) + $amount);
+}
+
+
+// cybre-specific additions
+
+.column .static-content.getting-started {
+  background-image: url('../images/logo-cybre-light.png');
+  background-size:auto 50%;
+  background-position: 50% 75%;
+  background-repeat:no-repeat;
+}
+
+.ui, body {
+  background: $ui-base-color url('../images/background-cybre-light.png');
+}
+
+// about.scss 
+#mastodon-timeline {
+  .column-header {
+    color:white;
+  }
+}
+
+// components.scss
+
+.column-header {
+  background: $header-color;
+  color: $header-text-color;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
+}
+
+.column-header__button {
+  background: $header-color;
+  color: $header-text-color;
+  border-top-right-radius: 3px;
+
+  &:hover {
+    color: darken($ui-base-color, 10%);
+  }
+
+  &.active {
+    color: $primary-text-color;
+    background: darken($ui-base-color, 5%);
+
+    &:hover {
+      background: darken($ui-base-color, 5%);
+    }
+  }
+}
+
+// selectivity -- needs to override .column-header > button
+.column-header .column-header__back-button {
+  background: $header-color;
+  color:$header-text-color;
+}
+
+.column-back-button {
+  background: $header-color;
+  color:$header-text-color;
+}
+
+.column-header__collapsible-inner {
+  background: darken($ui-base-alt, 2%);
+}
+
+/* More colorful compose form */
+.compose-form {
+  .autosuggest-textarea__textarea,
+  .spoiler-input__input {
+    color: $primary-text-color;
+    border: 1px solid $ui-highlight-color;
+  }
+
+  .autosuggest-textarea__textarea {
+    border-bottom-width:0px;
+  }
+  .compose-form__modifiers {
+    border: 1px solid $ui-highlight-color;
+    border-top-width:0px;
+  }
+
+  .compose-form__buttons button.active:last-child {
+    border-radius:3px;
+    background: $ui-base-color;
+    color: $ui-highlight-color;
+  }
+  .compose-form__buttons-wrapper {
+    background-color:$ui-highlight-color;
+  }
+
+  .icon-button.inverted {
+    color: $white;
+
+    &:hover {
+      color:darken($ui-base-color, 5%);
+    }
+  }
+}
+.compose-form .compose-form__buttons-wrapper .character-counter__wrapper
+.character-counter {
+  color: $white;
+}
+
+/* Fix the privacy dropdown options */
+.privacy-dropdown.active .privacy-dropdown__value.active .icon-button {
+    color: $ui-highlight-color;
+}
+
+.privacy-dropdown__option {
+  color: $primary-text-color;
+
+  strong {
+    color: $primary-text-color;
+  }
+
+  &:hover,
+  &.active {
+    color: $white;
+
+    .privacy-dropdown__option__content {
+      color: $white;
+
+      strong {
+        color: $white;
+      }
+    }
+  }
+}
+
+/* Fix the CW button */
+.text-icon-button {
+  color: $white;
+  &.active {
+    background: $ui-base-color;
+    color: $ui-primary-color;
+  }
+  &:focus, &:hover {
+    color: darken($ui-base-color, 3%);
+  }
+}
+
+.column-link {
+  background: lighten($ui-highlight-color, 5%);
+  color:$white;
+  &:hover {
+    background: lighten($ui-highlight-color, 10%);
+  }
+}
+.column-link__badge {
+  background: saturate(darken($ui-highlight-color, 5%), 5%);
+}
+.column-subheading {
+  background: darken($ui-highlight-color, 5%);
+  color:$white;
+}
+
+.status__relative-time, .status__display-name {
+  color: darken($ui-base-color, 60%);
+}
+
+.status__content {
+  .status__content__spoiler-link {
+    background: $ui-base-lighter-color;
+    color: $white;
+
+    &:hover {
+      background: lighten($ui-base-lighter-color, 5%);
+      color: $white;
+    }
+  }
+}
+
+.modal-root__overlay {
+  background: rgba(0,0,0,.7);
+}
+
+.reply-indicator {
+  background-color: $ui-highlight-color;
+  color: $white;
+}
+.reply-indicator__display-name,
+.reply-indicator__content {
+  color: $white;
+}
+.reply-indicator__content a {
+   color: lighten($ui-primary-color, 10%);
+}
+
+.drawer .drawer__inner {
+  background:$ui-base-alt;
+}
+
+.drawer .drawer__header {
+  background: $ui-base-color;
+  border-radius:3px;
+}
+
+.column {
+  & > .scrollable {
+    background-color: $ui-base-alt;
+  }
+}
